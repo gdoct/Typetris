@@ -2,7 +2,7 @@
 
 A fun little Tetris implementation in Typescript
 
-Online demo: https://typetris.azurewebsites.net/
+Online demo: <a href="https://typetris.azurewebsites.net/" target="_blank">https://typetris.azurewebsites.net/</a> (may take a while to wake up, Azure free tier hosting)
 
 MIT License
 
