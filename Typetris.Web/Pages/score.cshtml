@@ -1,0 +1,30 @@
+﻿@page
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Type-tris</title>
+    <script src="~/scripts/util.js"></script>
+    <script src="~/scripts/scoreboard.js"></script>
+    <link href="~/css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>Score</h1>
+    <h3>(Tetris in Typescript)</h3>
+    <div id="scoretable">
+    </div>
+
+    <script>
+
+        (function () {
+            document.score = new Typetris.Web.ScoreBoard();
+            document.score.render();
+        })();
+
+        
+    </script>
+    <footer>
+        <center>&copy; 2019 drdata.nl</center>
+    </footer>
+</body>
+</html>

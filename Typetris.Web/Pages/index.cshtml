@@ -1,0 +1,112 @@
+﻿@page
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Type-tris</title>
+    <script src="~/scripts/util.js"></script>
+    <script src="~/scripts/iviewrenderer.js"></script>
+    <script src="~/scripts/gamemodel.js"></script>
+    <script src="~/scripts/controller.js"></script>
+    <script src="~/scripts/javascriptrenderer.js"></script>
+    <script src="~/scripts/game.js"></script>
+    <script src="~/scripts/scoreboard.js"></script>
+    <link href="~/css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>Type-tris</h1>
+    <h3>(Tetris in Typescript)</h3>
+    <table class="page" id="mainpage">
+        <tr>
+            <td id="leftpane" class="leftpane"></td>
+            <td id="playfield" class="playfield"></td>
+            <td id="rightpane" class="rightpane">
+                <table class="sidetable">
+                    <tr style="width:100%">
+                        <td>Score:</td>
+                        <td id="scorecell"></td>
+                    </tr>
+                    <tr>
+                        <td>Level:</td>
+                        <td id="gamelevel">1</td>
+                    </tr>
+                    <tr>
+                        <td>Next:</td>
+                        <td id="nextblock"></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Move block to the left:</td>
+                        <td>Left arrow</td>
+                    </tr>
+                    <tr>
+                        <td>Move block to the right:</td>
+                        <td>Right arrow</td>
+                    </tr>
+                    <tr>
+                        <td>Rotate block left:</td>
+                        <td>Up arrow</td>
+                    </tr>
+                    <tr>
+                        <td>Rotate block right:</td>
+                        <td>Control</td>
+                    </tr>
+                    <tr>
+                        <td>Move block down:</td>
+                        <td>Down arrow</td>
+                    </tr>
+                    <tr>
+                        <td>Drop block:</td>
+                        <td>Space bar / Enter</td>
+                    </tr>
+                    <tr style="height:100%">
+                        <td>&nbsp;</td>
+                        <td></td>
+                    </tr>
+                    <tr style="vertical-align:bottom">
+                        <td>&nbsp;</td>
+                        <td >
+                            <a class="button" href="#" id="restartButton">Restart</a>
+                        </td>
+                    </tr>
+                </table>
+
+            </td>
+        </tr>
+    </table>
+    <a id="hiddenlink" href="#">&nbsp;</a>
+    <div id="gameover" class="hidden">
+        GAME OVER<br /><br />
+        <span id="resultscore" /><br />
+        <div id="scoretable"></div>
+    </div>
+    <script>
+
+        (function () {
+            let restart = function () {
+                document.game.restart();
+                document.getElementById("hiddenlink").focus();
+            }
+
+            document.getElementById("hiddenlink").focus();
+            document.game = new Typetris.Web.Game();
+
+            var el = document.getElementById("restartButton");
+            if (el.addEventListener) {
+                el.addEventListener("click", restart, false);
+            } else {
+                el.attachEvent('onclick', restart);
+            }
+            document.game.play();
+        })();
+
+
+    </script>
+    <footer>
+        <center>&copy; 2019 drdata.nl</center>
+    </footer>
+</body>
+</html>
